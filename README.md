@@ -1,5 +1,5 @@
 # FrameShot_Project
- A puzzle platformer prototype, made in Unity --->
+ A puzzle platformer prototype, made with Unity --->
  
  Challenge: Copy and Paste mechanic --->
 
