@@ -5,8 +5,6 @@
 
  
 
-executables can be found here --->
+Builds --->
 
 https://widowm.itch.io/frameshot
-
-
