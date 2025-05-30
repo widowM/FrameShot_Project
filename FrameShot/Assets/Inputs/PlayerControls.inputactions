@@ -686,6 +686,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ResetProgress",
+                    "type": "Button",
+                    "id": "233bcb90-ec3e-428c-a15d-5c46f438f3bd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -708,6 +717,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "776ddfb6-e1c6-467f-8fb1-a8fcb79083af",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ResetProgress",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

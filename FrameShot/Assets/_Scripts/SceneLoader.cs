@@ -7,9 +7,11 @@ public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private Image flashImage;
     [SerializeField] private Button startButton;
+    [SerializeField] private Button resetButton;
     [SerializeField] private RectTransform logo;
     [SerializeField] private AudioSource flashAudio;
     [SerializeField] private Text text;
+    [SerializeField] private Text resetButtonText;
     PlayerControls controls;
     private bool gameStarted = false;
     public static string SAVED_LEVEL_KEY = "SavedLevelIndex";
@@ -20,6 +22,7 @@ public class SceneLoader : MonoBehaviour
         PlayerAnimation.ShownCoyoteIndicatorCounter = 0;
         controls = new PlayerControls();
         controls.UI.Start.performed += ctx => StartGame();
+        controls.UI.ResetProgress.performed += ctx => ResetProgress();
         controls.UI.Disable();
     }
 
@@ -34,8 +37,11 @@ public class SceneLoader : MonoBehaviour
         startButton.gameObject.SetActive(true);
         startButton.image.DOFade(1f, 1f).SetEase(Ease.Linear);
         text.DOFade(1f, 1f).SetEase(Ease.Linear).OnComplete(() => controls.UI.Enable());
-
+        resetButton.gameObject.SetActive(true);
+        resetButton.image.DOFade(1f, 1f).SetEase(Ease.Linear);
+        resetButtonText.DOFade(1f, 1f).SetEase(Ease.Linear);
     }
+
     public void StartGame()
     {
         if (gameStarted) return;
@@ -48,6 +54,16 @@ public class SceneLoader : MonoBehaviour
     {
         int savedLevel = PlayerPrefs.GetInt(SAVED_LEVEL_KEY, 1);
         SceneManager.LoadScene(savedLevel);
+    }
+
+    public void ResetProgress()
+    {
+        PlayerPrefs.SetInt(SAVED_LEVEL_KEY, 1);
+        PlayerPrefs.Save();
+        
+#if UNITY_EDITOR
+        Debug.Log("Progress reset to Level 1");
+#endif
     }
 
     void OnDisable()

@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "ViewF_2D.sln"
+    "dotnet.defaultSolution": "FrameShot.sln"
 }
